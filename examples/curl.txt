@@ -1,0 +1,5 @@
+curl -H "Content-Type: application/json" -X POST -d '{"id":1,"naziv":"Avtotehna VIS"}' http://localhost:3000/prodajalci
+curl -H "Content-Type: application/json" -X POST -d '{"id":2,"naziv":"Avtotcenter Trobec"}' http://localhost:3000/prodajalci
+
+
+curl -X GET -d http://localhost:3000/prodajalci
