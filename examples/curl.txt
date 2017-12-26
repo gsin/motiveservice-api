@@ -1,5 +1,43 @@
-curl -H "Content-Type: application/json" -X POST -d '{"id":1,"naziv":"Avtotehna VIS"}' http://localhost:3000/prodajalci
-curl -H "Content-Type: application/json" -X POST -d '{"id":2,"naziv":"Avtotcenter Trobec"}' http://localhost:3000/prodajalci
+/**********************************************************************
+*	PRODAJALCI
+**********************************************************************/
+curl -X GET http://localhost:3000/prodajalci
+curl -H "Content-Type: application/json" -X POST -d '{"naziv":"Avtotehna VIS"}' http://localhost:3000/prodajalci
+curl -H "Content-Type: application/json" -X POST -d '{"naziv":"Avtotcenter Trobec"}' http://localhost:3000/prodajalci
 
 
-curl -X GET -d http://localhost:3000/prodajalci
+/**********************************************************************
+*	UPORABNIKI
+**********************************************************************/
+curl -X GET http://localhost:3000/uporabniki
+curl -H "Content-Type: application/json" -X POST -d '{"ime":"Simon","priimek":"Rusjan"}' http://localhost:3000/uporabniki
+
+
+/**********************************************************************
+*	VOZILA
+**********************************************************************/
+curl -X GET http://localhost:3000/vozila
+curl -H "Content-Type: application/json" -X POST -d '{"znamka":"Opel","model":"Astra","registrska_st":"KP-M8772"}' http8://localhost:3000/vozila
+
+
+/**********************************************************************
+*	SOGLASJA
+*********************************************************************
+{id:0,	odobreno: true,	vozilo: {id:0, "znamka":"Opel","model":"Astra","registrska_st":"KP-M8772",	},	uporabnik: {			id:0, ime":"Simon","priimek":"Rusjan",	}}
+
+
+curl -H "Content-Type: application/json" -X POST -d '{
+	"id": 0,
+	"odobreno": true,
+	"vozilo": {
+		"id": 0,
+		"znamka": "Opel",
+		"model": "Astra",
+		"registrska_st": "KP-M8772"
+	},
+	"uporabnik": {
+		"id": 0,
+		"ime": "Simon",
+		"priimek": "Rusjan"
+	}
+}' http://localhost:3000/aktivacija-jamstva
